@@ -1,0 +1,841 @@
+{
+  "$metadata": {
+    "product": "Venturi",
+    "version": "1.0.0",
+    "revision": "Maio 2026",
+    "description": "Design tokens oficiais do Venturi — Plataforma Multiplataforma para Empreendedores Solo",
+    "authors": ["Equipe Venturi — COTIL 2026/2027"]
+  },
+
+  "color": {
+    "brand": {
+      "cherry": {
+        "$value": "#670626",
+        "$type": "color",
+        "$description": "Cor primária — fundo vinho, identidade principal da marca"
+      },
+      "cherry-mid": {
+        "$value": "#4a0419",
+        "$type": "color",
+        "$description": "Cherry médio — hover de elementos primários, gradientes internos"
+      },
+      "cherry-deep": {
+        "$value": "#2d0210",
+        "$type": "color",
+        "$description": "Cherry profundo — sombras, estados active, fundo de sidebar dark"
+      },
+      "matcha": {
+        "$value": "#bad797",
+        "$type": "color",
+        "$description": "Cor secundária — destaques, acentos, CTAs sobre fundo cherry"
+      },
+      "dark": {
+        "$value": "#1a1014",
+        "$type": "color",
+        "$description": "Dark — fundo principal no modo escuro, cor de texto sobre fundos claros"
+      },
+      "white": {
+        "$value": "#FFFFFF",
+        "$type": "color",
+        "$description": "Branco — texto sobre cherry, fundo de cards no modo claro"
+      }
+    },
+
+    "semantic": {
+      "background": {
+        "primary": {
+          "$value": "{color.brand.white}",
+          "$type": "color",
+          "$description": "Fundo principal — modo claro"
+        },
+        "primary-dark": {
+          "$value": "{color.brand.dark}",
+          "$type": "color",
+          "$description": "Fundo principal — modo escuro"
+        },
+        "secondary": {
+          "$value": "#f7f3f4",
+          "$type": "color",
+          "$description": "Fundo secundário — sidebar, painéis, cards — modo claro"
+        },
+        "secondary-dark": {
+          "$value": "{color.brand.cherry-deep}",
+          "$type": "color",
+          "$description": "Fundo secundário — sidebar, painéis, cards — modo escuro"
+        },
+        "brand": {
+          "$value": "{color.brand.cherry}",
+          "$type": "color",
+          "$description": "Fundo de superfícies de marca (navbar, splash, cabeçalhos)"
+        }
+      },
+
+      "text": {
+        "primary": {
+          "$value": "{color.brand.dark}",
+          "$type": "color",
+          "$description": "Texto principal sobre fundo claro"
+        },
+        "primary-dark": {
+          "$value": "{color.brand.white}",
+          "$type": "color",
+          "$description": "Texto principal sobre fundo escuro"
+        },
+        "secondary": {
+          "$value": "#6b5258",
+          "$type": "color",
+          "$description": "Texto secundário, labels, placeholders — modo claro"
+        },
+        "secondary-dark": {
+          "$value": "#c9b4bb",
+          "$type": "color",
+          "$description": "Texto secundário, labels, placeholders — modo escuro"
+        },
+        "on-brand": {
+          "$value": "{color.brand.white}",
+          "$type": "color",
+          "$description": "Texto sobre superfícies cherry (navbar, botões primários)"
+        },
+        "accent": {
+          "$value": "{color.brand.matcha}",
+          "$type": "color",
+          "$description": "Texto de destaque, links e badges sobre fundo cherry"
+        },
+        "disabled": {
+          "$value": "#b0a0a5",
+          "$type": "color",
+          "$description": "Texto de elementos desabilitados"
+        }
+      },
+
+      "border": {
+        "primary": {
+          "$value": "#d4c4c9",
+          "$type": "color",
+          "$description": "Bordas padrão — inputs, cards, divisores — modo claro"
+        },
+        "primary-dark": {
+          "$value": "#3d1f28",
+          "$type": "color",
+          "$description": "Bordas padrão — modo escuro"
+        },
+        "focus": {
+          "$value": "{color.brand.cherry}",
+          "$type": "color",
+          "$description": "Borda de foco em inputs e elementos interativos"
+        },
+        "accent": {
+          "$value": "{color.brand.matcha}",
+          "$type": "color",
+          "$description": "Borda de destaque, indicadores ativos"
+        }
+      },
+
+      "interactive": {
+        "primary": {
+          "$value": "{color.brand.cherry}",
+          "$type": "color",
+          "$description": "Botão primário — background padrão"
+        },
+        "primary-hover": {
+          "$value": "{color.brand.cherry-mid}",
+          "$type": "color",
+          "$description": "Botão primário — hover"
+        },
+        "primary-active": {
+          "$value": "{color.brand.cherry-deep}",
+          "$type": "color",
+          "$description": "Botão primário — active / pressed"
+        },
+        "secondary": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Botão secundário — background transparente com borda cherry"
+        },
+        "accent": {
+          "$value": "{color.brand.matcha}",
+          "$type": "color",
+          "$description": "Botão de destaque — usado sobre fundos cherry"
+        }
+      },
+
+      "status": {
+        "success": {
+          "$value": "#2d7a4f",
+          "$type": "color",
+          "$description": "Sucesso — tarefa concluída, proposta aceita"
+        },
+        "success-bg": {
+          "$value": "#eaf5ef",
+          "$type": "color",
+          "$description": "Fundo de badge/toast de sucesso"
+        },
+        "warning": {
+          "$value": "#9a6000",
+          "$type": "color",
+          "$description": "Alerta — prazo próximo, uso de IA alto"
+        },
+        "warning-bg": {
+          "$value": "#fdf3dc",
+          "$type": "color",
+          "$description": "Fundo de badge/toast de alerta"
+        },
+        "error": {
+          "$value": "#b91c1c",
+          "$type": "color",
+          "$description": "Erro — prazo vencido, proposta recusada"
+        },
+        "error-bg": {
+          "$value": "#fdecea",
+          "$type": "color",
+          "$description": "Fundo de badge/toast de erro"
+        },
+        "info": {
+          "$value": "#1d4e8f",
+          "$type": "color",
+          "$description": "Informação — dicas, onboarding"
+        },
+        "info-bg": {
+          "$value": "#e6edf8",
+          "$type": "color",
+          "$description": "Fundo de badge/toast informativo"
+        }
+      },
+
+      "chapeu": {
+        "financeiro": {
+          "$value": "#2d7a4f",
+          "$type": "color",
+          "$description": "Chapéu Financeiro — verde"
+        },
+        "operacional": {
+          "$value": "#3266ad",
+          "$type": "color",
+          "$description": "Chapéu Operacional — azul"
+        },
+        "marketing": {
+          "$value": "#9333ea",
+          "$type": "color",
+          "$description": "Chapéu Marketing — roxo"
+        },
+        "vendas": {
+          "$value": "#d85a30",
+          "$type": "color",
+          "$description": "Chapéu Vendas — laranja"
+        }
+      },
+
+      "kanban": {
+        "a-fazer": {
+          "$value": "#6b5258",
+          "$type": "color",
+          "$description": "Coluna A Fazer — indicador visual"
+        },
+        "em-andamento": {
+          "$value": "#3266ad",
+          "$type": "color",
+          "$description": "Coluna Em Andamento — indicador visual"
+        },
+        "concluido": {
+          "$value": "#2d7a4f",
+          "$type": "color",
+          "$description": "Coluna Concluído — indicador visual"
+        }
+      },
+
+      "proposta": {
+        "rascunho": {
+          "$value": "#6b5258",
+          "$type": "color"
+        },
+        "enviada": {
+          "$value": "#3266ad",
+          "$type": "color"
+        },
+        "visualizada": {
+          "$value": "#9a6000",
+          "$type": "color"
+        },
+        "aceita": {
+          "$value": "#2d7a4f",
+          "$type": "color"
+        },
+        "recusada": {
+          "$value": "#b91c1c",
+          "$type": "color"
+        }
+      }
+    }
+  },
+
+  "typography": {
+    "family": {
+      "display": {
+        "$value": "Syne, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Tipografia de display — títulos, logo, headlines. Peso 800."
+      },
+      "interface": {
+        "$value": "DM Sans, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Tipografia de interface — corpo, labels, inputs. Pesos 300 e 400."
+      },
+      "mono": {
+        "$value": "JetBrains Mono, monospace",
+        "$type": "fontFamily",
+        "$description": "Tipografia mono — fórmulas de planilha, tokens, código"
+      }
+    },
+
+    "weight": {
+      "light": {
+        "$value": 300,
+        "$type": "fontWeight",
+        "$description": "DM Sans Light — corpo de texto longo, descrições"
+      },
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight",
+        "$description": "DM Sans Regular — texto de interface padrão"
+      },
+      "medium": {
+        "$value": 500,
+        "$type": "fontWeight",
+        "$description": "DM Sans Medium — labels, botões, navegação"
+      },
+      "semibold": {
+        "$value": 600,
+        "$type": "fontWeight",
+        "$description": "DM Sans SemiBold — subtítulos, cabeçalhos de card"
+      },
+      "extrabold": {
+        "$value": 800,
+        "$type": "fontWeight",
+        "$description": "Syne ExtraBold — logo, headlines de display"
+      }
+    },
+
+    "size": {
+      "xs": {
+        "$value": "11px",
+        "$type": "dimension",
+        "$description": "Extra pequeno — badges, timestamps, labels auxiliares"
+      },
+      "sm": {
+        "$value": "12px",
+        "$type": "dimension",
+        "$description": "Pequeno — metadados, legendas de gráficos, tags"
+      },
+      "base": {
+        "$value": "14px",
+        "$type": "dimension",
+        "$description": "Base — texto de interface padrão"
+      },
+      "md": {
+        "$value": "16px",
+        "$type": "dimension",
+        "$description": "Médio — corpo de texto, inputs"
+      },
+      "lg": {
+        "$value": "18px",
+        "$type": "dimension",
+        "$description": "Grande — subtítulos de seção, cabeçalhos de card"
+      },
+      "xl": {
+        "$value": "22px",
+        "$type": "dimension",
+        "$description": "Extra grande — títulos de página"
+      },
+      "2xl": {
+        "$value": "28px",
+        "$type": "dimension",
+        "$description": "2x grande — headlines de módulo"
+      },
+      "3xl": {
+        "$value": "36px",
+        "$type": "dimension",
+        "$description": "3x grande — headlines de landing page"
+      },
+      "4xl": {
+        "$value": "48px",
+        "$type": "dimension",
+        "$description": "Hero — headline principal da landing page"
+      },
+      "display": {
+        "$value": "64px",
+        "$type": "dimension",
+        "$description": "Display — logo e splash screens"
+      }
+    },
+
+    "lineHeight": {
+      "tight": {
+        "$value": 1.2,
+        "$type": "number",
+        "$description": "Apertado — headlines grandes, logo"
+      },
+      "snug": {
+        "$value": 1.35,
+        "$type": "number",
+        "$description": "Semi-apertado — títulos de seção"
+      },
+      "normal": {
+        "$value": 1.5,
+        "$type": "number",
+        "$description": "Normal — texto de interface padrão"
+      },
+      "relaxed": {
+        "$value": 1.65,
+        "$type": "number",
+        "$description": "Relaxado — corpo de texto longo, posts do fórum"
+      }
+    },
+
+    "letterSpacing": {
+      "tight": {
+        "$value": "-0.02em",
+        "$type": "dimension",
+        "$description": "Headlines e display com Syne"
+      },
+      "normal": {
+        "$value": "0em",
+        "$type": "dimension",
+        "$description": "Texto de interface padrão"
+      },
+      "wide": {
+        "$value": "0.04em",
+        "$type": "dimension",
+        "$description": "Labels em maiúsculas, categorias"
+      },
+      "wider": {
+        "$value": "0.08em",
+        "$type": "dimension",
+        "$description": "Tags e badges em caps"
+      }
+    },
+
+    "scale": {
+      "display": {
+        "$value": {
+          "fontFamily": "{typography.family.display}",
+          "fontWeight": "{typography.weight.extrabold}",
+          "fontSize": "{typography.size.display}",
+          "lineHeight": "{typography.lineHeight.tight}",
+          "letterSpacing": "{typography.letterSpacing.tight}"
+        },
+        "$type": "typography",
+        "$description": "Logo Venturi, splash screens"
+      },
+      "h1": {
+        "$value": {
+          "fontFamily": "{typography.family.display}",
+          "fontWeight": "{typography.weight.extrabold}",
+          "fontSize": "{typography.size.4xl}",
+          "lineHeight": "{typography.lineHeight.tight}",
+          "letterSpacing": "{typography.letterSpacing.tight}"
+        },
+        "$type": "typography",
+        "$description": "Headline principal da landing page"
+      },
+      "h2": {
+        "$value": {
+          "fontFamily": "{typography.family.display}",
+          "fontWeight": "{typography.weight.extrabold}",
+          "fontSize": "{typography.size.3xl}",
+          "lineHeight": "{typography.lineHeight.snug}",
+          "letterSpacing": "{typography.letterSpacing.tight}"
+        },
+        "$type": "typography",
+        "$description": "Título de seção da landing page"
+      },
+      "h3": {
+        "$value": {
+          "fontFamily": "{typography.family.interface}",
+          "fontWeight": "{typography.weight.semibold}",
+          "fontSize": "{typography.size.xl}",
+          "lineHeight": "{typography.lineHeight.snug}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$type": "typography",
+        "$description": "Título de página dentro do app"
+      },
+      "h4": {
+        "$value": {
+          "fontFamily": "{typography.family.interface}",
+          "fontWeight": "{typography.weight.semibold}",
+          "fontSize": "{typography.size.lg}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$type": "typography",
+        "$description": "Cabeçalho de card, nome de seção"
+      },
+      "body": {
+        "$value": {
+          "fontFamily": "{typography.family.interface}",
+          "fontWeight": "{typography.weight.regular}",
+          "fontSize": "{typography.size.base}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$type": "typography",
+        "$description": "Texto de interface padrão"
+      },
+      "body-light": {
+        "$value": {
+          "fontFamily": "{typography.family.interface}",
+          "fontWeight": "{typography.weight.light}",
+          "fontSize": "{typography.size.md}",
+          "lineHeight": "{typography.lineHeight.relaxed}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$type": "typography",
+        "$description": "Corpo de texto longo — posts do fórum, descrições"
+      },
+      "label": {
+        "$value": {
+          "fontFamily": "{typography.family.interface}",
+          "fontWeight": "{typography.weight.medium}",
+          "fontSize": "{typography.size.sm}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.wide}"
+        },
+        "$type": "typography",
+        "$description": "Labels de input, navegação, categorias"
+      },
+      "caption": {
+        "$value": {
+          "fontFamily": "{typography.family.interface}",
+          "fontWeight": "{typography.weight.regular}",
+          "fontSize": "{typography.size.xs}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$type": "typography",
+        "$description": "Timestamps, metadados, notas auxiliares"
+      },
+      "badge": {
+        "$value": {
+          "fontFamily": "{typography.family.interface}",
+          "fontWeight": "{typography.weight.medium}",
+          "fontSize": "{typography.size.xs}",
+          "lineHeight": 1,
+          "letterSpacing": "{typography.letterSpacing.wider}"
+        },
+        "$type": "typography",
+        "$description": "Badges de status, tags, chips"
+      },
+      "mono": {
+        "$value": {
+          "fontFamily": "{typography.family.mono}",
+          "fontWeight": "{typography.weight.regular}",
+          "fontSize": "{typography.size.sm}",
+          "lineHeight": "{typography.lineHeight.relaxed}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$type": "typography",
+        "$description": "Fórmulas de planilha, valores de token"
+      }
+    }
+  },
+
+  "spacing": {
+    "0": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "1": {
+      "$value": "4px",
+      "$type": "dimension",
+      "$description": "Micro — gap entre ícone e texto, separadores mínimos"
+    },
+    "2": {
+      "$value": "8px",
+      "$type": "dimension",
+      "$description": "Extra pequeno — padding interno de badge, gap de tags"
+    },
+    "3": {
+      "$value": "12px",
+      "$type": "dimension",
+      "$description": "Pequeno — padding de chip/tag, gap de itens de lista compacta"
+    },
+    "4": {
+      "$value": "16px",
+      "$type": "dimension",
+      "$description": "Base — padding de card, gap padrão entre elementos"
+    },
+    "5": {
+      "$value": "20px",
+      "$type": "dimension",
+      "$description": "Médio-pequeno — padding interno de inputs e botões"
+    },
+    "6": {
+      "$value": "24px",
+      "$type": "dimension",
+      "$description": "Médio — gap entre cards, padding de seção compacta"
+    },
+    "8": {
+      "$value": "32px",
+      "$type": "dimension",
+      "$description": "Médio-grande — padding de painel lateral, gap de grid"
+    },
+    "10": {
+      "$value": "40px",
+      "$type": "dimension",
+      "$description": "Grande — padding de container de conteúdo principal"
+    },
+    "12": {
+      "$value": "48px",
+      "$type": "dimension",
+      "$description": "Extra grande — separação entre seções do dashboard"
+    },
+    "16": {
+      "$value": "64px",
+      "$type": "dimension",
+      "$description": "2x grande — padding de seções da landing page"
+    },
+    "20": {
+      "$value": "80px",
+      "$type": "dimension",
+      "$description": "Hero — padding vertical do hero da landing page"
+    },
+    "24": {
+      "$value": "96px",
+      "$type": "dimension",
+      "$description": "Máximo — espaçamento entre seções maiores da landing"
+    }
+  },
+
+  "borderRadius": {
+    "none": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "sm": {
+      "$value": "4px",
+      "$type": "dimension",
+      "$description": "Badges, chips, tags"
+    },
+    "md": {
+      "$value": "8px",
+      "$type": "dimension",
+      "$description": "Inputs, botões, cards compactos"
+    },
+    "lg": {
+      "$value": "12px",
+      "$type": "dimension",
+      "$description": "Cards principais, painéis, modais"
+    },
+    "xl": {
+      "$value": "16px",
+      "$type": "dimension",
+      "$description": "Cards de destaque, drawer de IA"
+    },
+    "2xl": {
+      "$value": "24px",
+      "$type": "dimension",
+      "$description": "Modais grandes, painéis de onboarding"
+    },
+    "full": {
+      "$value": "9999px",
+      "$type": "dimension",
+      "$description": "Pílulas, avatares, botões circulares"
+    }
+  },
+
+  "shadow": {
+    "sm": {
+      "$value": "0 1px 3px rgba(26, 16, 20, 0.08)",
+      "$type": "shadow",
+      "$description": "Sombra sutil — cards em estado padrão"
+    },
+    "md": {
+      "$value": "0 4px 12px rgba(26, 16, 20, 0.12)",
+      "$type": "shadow",
+      "$description": "Sombra média — cards em hover, dropdowns"
+    },
+    "lg": {
+      "$value": "0 8px 24px rgba(26, 16, 20, 0.16)",
+      "$type": "shadow",
+      "$description": "Sombra grande — modais, drawer de IA"
+    },
+    "xl": {
+      "$value": "0 16px 48px rgba(26, 16, 20, 0.24)",
+      "$type": "shadow",
+      "$description": "Sombra extra grande — overlays, popovers flutuantes"
+    },
+    "brand": {
+      "$value": "0 4px 16px rgba(103, 6, 38, 0.32)",
+      "$type": "shadow",
+      "$description": "Sombra cherry — botões primários em hover, elementos de destaque"
+    }
+  },
+
+  "size": {
+    "navbar-height": {
+      "$value": "60px",
+      "$type": "dimension",
+      "$description": "Altura fixa da navbar superior"
+    },
+    "sidebar-width": {
+      "$value": "240px",
+      "$type": "dimension",
+      "$description": "Largura da sidebar esquerda de módulo"
+    },
+    "sidebar-collapsed": {
+      "$value": "64px",
+      "$type": "dimension",
+      "$description": "Largura da sidebar colapsada (somente ícones)"
+    },
+    "ai-drawer-width": {
+      "$value": "400px",
+      "$type": "dimension",
+      "$description": "Largura do drawer SoloPlan AI"
+    },
+    "ai-drawer-width-mobile": {
+      "$value": "100vw",
+      "$type": "dimension",
+      "$description": "Drawer de IA ocupa tela cheia no mobile"
+    },
+    "kanban-column-width": {
+      "$value": "300px",
+      "$type": "dimension",
+      "$description": "Largura fixa de cada coluna do Kanban"
+    },
+    "card-min-height": {
+      "$value": "80px",
+      "$type": "dimension",
+      "$description": "Altura mínima de card de tarefa no Kanban"
+    },
+    "avatar-sm": {
+      "$value": "28px",
+      "$type": "dimension",
+      "$description": "Avatar pequeno — listas de usuários, comentários"
+    },
+    "avatar-md": {
+      "$value": "40px",
+      "$type": "dimension",
+      "$description": "Avatar médio — navbar, cards de post"
+    },
+    "avatar-lg": {
+      "$value": "64px",
+      "$type": "dimension",
+      "$description": "Avatar grande — página de perfil"
+    },
+    "touch-target": {
+      "$value": "44px",
+      "$type": "dimension",
+      "$description": "Tamanho mínimo de alvo de toque no mobile (Apple HIG)"
+    },
+    "icon-sm": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "icon-md": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "icon-lg": {
+      "$value": "24px",
+      "$type": "dimension"
+    }
+  },
+
+  "transition": {
+    "fast": {
+      "$value": "100ms ease",
+      "$type": "duration",
+      "$description": "Hover de botões, mudança de cor"
+    },
+    "base": {
+      "$value": "150ms ease",
+      "$type": "duration",
+      "$description": "Transição padrão de interações"
+    },
+    "slow": {
+      "$value": "250ms ease-in-out",
+      "$type": "duration",
+      "$description": "Abertura de modais, expansão de painéis"
+    },
+    "drawer": {
+      "$value": "300ms cubic-bezier(0.4, 0, 0.2, 1)",
+      "$type": "duration",
+      "$description": "Deslizamento do drawer SoloPlan AI"
+    }
+  },
+
+  "zIndex": {
+    "base": {
+      "$value": 0,
+      "$type": "number"
+    },
+    "card": {
+      "$value": 10,
+      "$type": "number",
+      "$description": "Cards em drag & drop"
+    },
+    "dropdown": {
+      "$value": 100,
+      "$type": "number",
+      "$description": "Dropdowns e tooltips"
+    },
+    "sidebar": {
+      "$value": 200,
+      "$type": "number",
+      "$description": "Sidebar esquerda"
+    },
+    "navbar": {
+      "$value": 300,
+      "$type": "number",
+      "$description": "Navbar superior — sempre visível"
+    },
+    "overlay": {
+      "$value": 400,
+      "$type": "number",
+      "$description": "Overlay semitransparente do drawer de IA"
+    },
+    "drawer": {
+      "$value": 500,
+      "$type": "number",
+      "$description": "Drawer SoloPlan AI — sobre o overlay"
+    },
+    "modal": {
+      "$value": 600,
+      "$type": "number",
+      "$description": "Modais e dialogs — sobre tudo"
+    },
+    "toast": {
+      "$value": 700,
+      "$type": "number",
+      "$description": "Toasts e notificações — camada mais alta"
+    }
+  },
+
+  "breakpoint": {
+    "sm": {
+      "$value": "640px",
+      "$type": "dimension",
+      "$description": "Mobile grande / landscape"
+    },
+    "md": {
+      "$value": "768px",
+      "$type": "dimension",
+      "$description": "Tablet"
+    },
+    "lg": {
+      "$value": "1024px",
+      "$type": "dimension",
+      "$description": "Laptop — sidebar aparece"
+    },
+    "xl": {
+      "$value": "1280px",
+      "$type": "dimension",
+      "$description": "Desktop padrão"
+    },
+    "2xl": {
+      "$value": "1536px",
+      "$type": "dimension",
+      "$description": "Desktop largo — feed em 3 colunas"
+    }
+  }
+}
