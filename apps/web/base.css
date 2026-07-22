@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ------------------------------------------------------------------
+   Theme aliases — every component/page should read colors through
+   these "-auto" custom properties instead of the raw light-mode
+   tokens. Because CSS variables resolve against the nearest ancestor
+   definition, redefining them once inside body.dark cascades to
+   every descendant automatically — including inline styles injected
+   by JS — without needing a body.dark override per component.
+------------------------------------------------------------------- */
+:root {
+  --color-text-primary-auto: var(--color-semantic-text-primary);
+  --color-text-secondary-auto: var(--color-semantic-text-secondary);
+  --color-bg-primary-auto: var(--color-semantic-background-primary);
+  --color-bg-secondary-auto: var(--color-semantic-background-secondary);
+  --color-border-auto: var(--color-semantic-border-primary);
+  /* accent-auto: cherry reads fine on light surfaces, but is too low-contrast
+     on near-black dark surfaces — swap to matcha whenever used as emphasis
+     (active states, links) on top of a themed background. */
+  --color-accent-auto: var(--color-semantic-interactive-primary);
+}
+body.dark {
+  --color-text-primary-auto: var(--color-semantic-text-primary-dark);
+  --color-text-secondary-auto: var(--color-semantic-text-secondary-dark);
+  --color-bg-primary-auto: var(--color-brand-dark);
+  --color-bg-secondary-auto: var(--color-semantic-background-secondary-dark);
+  --color-border-auto: var(--color-semantic-border-primary-dark);
+  --color-accent-auto: var(--color-brand-matcha);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-semantic-background-secondary);
+  color: var(--color-semantic-text-primary);
+  font-family: var(--typography-family-interface);
+  font-size: var(--typography-size-base);
+  line-height: var(--typography-lineHeight-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.dark {
+  background: var(--color-semantic-background-primary-dark);
+  color: var(--color-semantic-text-primary-dark);
+}
+
+h1, h2, h3, h4, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+input, textarea, select { font-family: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Typography scale (typography.scale.*) */
+.t-display {
+  font-family: var(--typography-family-display);
+  font-weight: var(--typography-weight-extrabold);
+  font-size: var(--typography-size-display);
+  line-height: var(--typography-lineHeight-tight);
+  letter-spacing: var(--typography-letterSpacing-tight);
+}
+.t-h1 {
+  font-family: var(--typography-family-display);
+  font-weight: var(--typography-weight-extrabold);
+  font-size: var(--typography-size-4xl);
+  line-height: var(--typography-lineHeight-tight);
+  letter-spacing: var(--typography-letterSpacing-tight);
+}
+.t-h2 {
+  font-family: var(--typography-family-display);
+  font-weight: var(--typography-weight-extrabold);
+  font-size: var(--typography-size-3xl);
+  line-height: var(--typography-lineHeight-snug);
+  letter-spacing: var(--typography-letterSpacing-tight);
+}
+.t-h3 {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-size-xl);
+  line-height: var(--typography-lineHeight-snug);
+}
+.t-h4 {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-size-lg);
+  line-height: var(--typography-lineHeight-normal);
+}
+.t-body {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-base);
+  line-height: var(--typography-lineHeight-normal);
+}
+.t-body-light {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-light);
+  font-size: var(--typography-size-md);
+  line-height: var(--typography-lineHeight-relaxed);
+}
+.t-label {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-sm);
+  line-height: var(--typography-lineHeight-normal);
+  letter-spacing: var(--typography-letterSpacing-wide);
+}
+.t-caption {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-xs);
+  line-height: var(--typography-lineHeight-normal);
+}
+.t-badge {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-xs);
+  line-height: 1;
+  letter-spacing: var(--typography-letterSpacing-wider);
+  text-transform: uppercase;
+}
+.t-mono {
+  font-family: var(--typography-family-mono);
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-sm);
+  line-height: var(--typography-lineHeight-relaxed);
+}
+
+.text-secondary { color: var(--color-text-secondary-auto); }
+.text-accent { color: var(--color-semantic-text-accent); }
+.text-on-brand { color: var(--color-semantic-text-on-brand); }
+.text-disabled { color: var(--color-semantic-text-disabled); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--color-border-auto); border-radius: var(--borderRadius-full); }
+::-webkit-scrollbar-track { background: transparent; }

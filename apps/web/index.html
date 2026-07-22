@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venturi — Protótipo</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<div id="app-shell">
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-left">
+      <button class="navbar-hamburger" id="btn-hamburger" aria-label="Menu">☰</button>
+      <a href="#/dashboard" class="navbar-logo">VENTURI</a>
+      <nav class="navbar-modules" id="navbar-modules">
+        <a href="#/dashboard" data-module="organizacao">Organização</a>
+        <a href="#/precificacao/calculadora" data-module="precificacao">Precificação</a>
+        <a href="#/comunidade/feed" data-module="comunidade">Comunidade</a>
+      </nav>
+    </div>
+    <div class="navbar-right" id="navbar-right">
+      <!-- filled by JS depending on public/app state -->
+    </div>
+  </header>
+
+  <!-- SIDEBAR (per module) -->
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="sidebar-scrim" id="sidebar-scrim"></div>
+
+  <!-- MOBILE TAB BAR -->
+  <nav class="tabbar" id="tabbar"></nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content" id="content" role="main" aria-live="polite" tabindex="-1"></main>
+
+  <!-- SOLOPLAN AI DRAWER -->
+  <div class="ai-overlay" id="ai-overlay"></div>
+  <aside class="ai-drawer" id="ai-drawer" role="dialog" aria-modal="true" aria-labelledby="ai-drawer-title">
+    <div class="ai-drawer-head">
+      <div class="row" style="gap:8px;">
+        <span style="font-size:20px;" aria-hidden="true">✨</span>
+        <span class="t-h4" id="ai-drawer-title" style="color:#fff;">SoloPlan AI</span>
+      </div>
+      <button id="ai-close" class="navbar-icon-btn" aria-label="Fechar painel SoloPlan AI">✕</button>
+    </div>
+    <div class="ai-drawer-body" id="ai-drawer-body">
+      <div class="chat-bubble them">Oi! Sou o SoloPlan AI. Posso te ajudar a criar tarefas, sugerir preços ou preencher planilhas. O que você precisa?</div>
+      <div class="chat-bubble me">Cria uma tarefa "Fechar orçamento do cliente Ana" pra amanhã</div>
+      <div class="chat-bubble them">Feito! Adicionei "Fechar orçamento do cliente Ana" na coluna <b>A fazer</b> do projeto atual, com prazo para amanhã.</div>
+    </div>
+    <div class="ai-usage">Uso hoje: 12 / 50 mensagens (plano Free)</div>
+    <div class="ai-drawer-foot">
+      <input class="input" style="flex:1;" placeholder="Pergunte algo ao SoloPlan AI..." aria-label="Pergunte algo ao SoloPlan AI">
+      <button class="btn btn-primary btn-icon" aria-label="Enviar pergunta">➤</button>
+    </div>
+  </aside>
+
+</div>
+
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+/* ---------- App shell ---------- */
+#app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Navbar (1.1 — fixa global) ---------- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--size-navbar-height);
+  background: var(--color-semantic-background-brand);
+  z-index: var(--zIndex-navbar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+}
+.navbar-left { display: flex; align-items: center; gap: var(--spacing-8); }
+.navbar-logo {
+  font-family: var(--typography-family-display);
+  font-weight: var(--typography-weight-extrabold);
+  font-size: var(--typography-size-xl);
+  color: var(--color-semantic-text-on-brand);
+  letter-spacing: var(--typography-letterSpacing-tight);
+}
+.navbar-modules { display: flex; gap: var(--spacing-6); }
+.navbar-modules a {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-base);
+  color: var(--color-semantic-text-on-brand);
+  opacity: 0.75;
+  padding: var(--spacing-2) 0;
+  border-bottom: 2px solid transparent;
+  transition: opacity var(--transition-fast);
+}
+.navbar-modules a:hover { opacity: 1; }
+.navbar-modules a.active { opacity: 1; border-bottom-color: var(--color-brand-matcha); color: var(--color-semantic-text-accent); }
+.navbar-right { display: flex; align-items: center; gap: var(--spacing-4); }
+.navbar-btn-ai {
+  display: flex; align-items: center; gap: var(--spacing-2);
+  background: var(--color-semantic-interactive-accent);
+  color: var(--color-brand-cherry-deep);
+  border: none; border-radius: var(--borderRadius-full);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-size-sm);
+}
+.navbar-icon-btn { position: relative; color: var(--color-semantic-text-on-brand); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: var(--borderRadius-full); background: transparent; border: none; }
+.navbar-icon-btn:hover { background: rgba(255,255,255,0.12); }
+.navbar-badge { position: absolute; top: 2px; right: 2px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-semantic-status-error); }
+.navbar-hamburger { display: none; color: var(--color-semantic-text-on-brand); background: none; border: none; }
+
+.navbar-account { position: relative; }
+.account-menu {
+  position: absolute; top: calc(100% + 10px); right: 0;
+  background: var(--color-bg-primary-auto);
+  border: 1px solid var(--color-border-auto);
+  border-radius: var(--borderRadius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 190px;
+  padding: var(--spacing-2);
+  display: none;
+  flex-direction: column;
+  z-index: var(--zIndex-dropdown);
+}
+.account-menu.open { display: flex; }
+.account-menu a {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--borderRadius-sm);
+  font-size: var(--typography-size-sm);
+  color: var(--color-text-primary-auto);
+}
+.account-menu a:hover { background: var(--color-bg-secondary-auto); }
+
+/* Public navbar variant */
+.navbar.public .navbar-modules { display: none; }
+
+/* ---------- Sidebar (1.2 — fixa por módulo) ---------- */
+.sidebar {
+  position: fixed;
+  top: var(--size-navbar-height);
+  bottom: 0;
+  left: 0;
+  width: var(--size-sidebar-width);
+  background: var(--color-bg-secondary-auto);
+  border-right: 1px solid var(--color-border-auto);
+  z-index: var(--zIndex-sidebar);
+  overflow-y: auto;
+  padding: var(--spacing-6) var(--spacing-4);
+}
+.sidebar-label { font-size: var(--typography-size-xs); text-transform: uppercase; letter-spacing: var(--typography-letterSpacing-wide); color: var(--color-text-secondary-auto); padding: 0 var(--spacing-3); margin-bottom: var(--spacing-2); }
+.sidebar-item {
+  display: flex; align-items: center; gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  border-radius: var(--borderRadius-md);
+  color: var(--color-text-primary-auto);
+  font-size: var(--typography-size-base);
+  font-weight: var(--typography-weight-medium);
+  margin-bottom: 2px;
+}
+.sidebar-item:hover { background: var(--color-bg-primary-auto); }
+.sidebar-item.active { background: var(--color-bg-primary-auto); color: var(--color-accent-auto); box-shadow: inset 3px 0 0 var(--color-accent-auto); }
+.sidebar-icon { width: var(--size-icon-md); text-align: center; }
+
+/* ---------- Content area ---------- */
+.content {
+  margin-top: var(--size-navbar-height);
+  margin-left: var(--size-sidebar-width);
+  padding: var(--spacing-8);
+  flex: 1;
+}
+.content.no-sidebar { margin-left: 0; }
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-6); flex-wrap: wrap; gap: var(--spacing-3); }
+.page-header .t-h3 { color: var(--color-text-primary-auto); }
+.page-sub { color: var(--color-text-secondary-auto); margin-top: 2px; }
+
+/* Public pages: full width, no sidebar/app chrome */
+.public-content { margin-top: var(--size-navbar-height); margin-left: 0; padding: 0 !important; }
+.public-content .public-inner { max-width: 1040px; margin: 0 auto; padding: var(--spacing-8); }
+
+.bare-content { margin-top: 0; margin-left: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--spacing-8) !important; background: var(--color-bg-secondary-auto); }
+.bare-content .bare-inner { width: 100%; }
+
+.split-wrap { display: flex; min-height: 100vh; }
+.split-brand {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--color-brand-cherry), var(--color-brand-cherry-deep));
+  color: #fff; padding: var(--spacing-12);
+}
+.split-form { flex: 1; max-width: 480px; padding: var(--spacing-10); display: flex; flex-direction: column; justify-content: center; margin: 0 auto; }
+@media (max-width: 768px) {
+  .split-brand { display: none; }
+  .split-form { max-width: 100%; padding: var(--spacing-6); }
+}
+
+.centered-wrap { max-width: 480px; margin: 0 auto; padding: var(--spacing-10) var(--spacing-4); }
+
+/* ---------- SoloPlan AI Drawer (1.3) ---------- */
+.ai-overlay {
+  position: fixed; inset: 0; background: rgba(26,16,20,0.45);
+  z-index: var(--zIndex-overlay);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--transition-slow);
+}
+.ai-overlay.open { opacity: 1; pointer-events: auto; }
+
+.ai-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: var(--size-ai-drawer-width);
+  max-width: 100vw;
+  background: var(--color-bg-primary-auto);
+  z-index: var(--zIndex-drawer);
+  box-shadow: var(--shadow-xl);
+  transform: translateX(100%);
+  transition: transform var(--transition-drawer);
+  display: flex; flex-direction: column;
+}
+.ai-drawer.open { transform: translateX(0); }
+.ai-drawer-head {
+  background: var(--color-semantic-background-brand);
+  color: var(--color-semantic-text-on-brand);
+  padding: var(--spacing-4) var(--spacing-5);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ai-drawer-body { flex: 1; overflow-y: auto; padding: var(--spacing-5); display: flex; flex-direction: column; gap: var(--spacing-3); }
+.ai-drawer-foot { padding: var(--spacing-4); border-top: 1px solid var(--color-border-auto); display: flex; gap: var(--spacing-2); }
+.ai-usage { padding: var(--spacing-3) var(--spacing-5); background: var(--color-bg-secondary-auto); font-size: var(--typography-size-xs); color: var(--color-text-secondary-auto); }
+
+/* ---------- Breakpoints ---------- */
+@media (max-width: 1024px) {
+  .sidebar { transform: translateX(-100%); transition: transform var(--transition-slow); box-shadow: var(--shadow-xl); }
+  .sidebar.open { transform: translateX(0); }
+  .content, .content.no-sidebar { margin-left: 0; }
+  .navbar-modules { display: none; }
+  .navbar-hamburger { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+  .sidebar-scrim { position: fixed; inset: 0; top: var(--size-navbar-height); background: rgba(26,16,20,0.4); z-index: 190; display: none; }
+  .sidebar-scrim.open { display: block; }
+}
+
+@media (max-width: 640px) {
+  .content { padding: var(--spacing-4); }
+  .ai-drawer { width: var(--size-ai-drawer-width-mobile); }
+  .navbar { padding: 0 var(--spacing-4); }
+  .navbar-left { gap: var(--spacing-3); }
+  .page-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* Mobile bottom tab bar (used instead of sidebar on small screens for app modules) */
+.tabbar {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: var(--color-bg-primary-auto);
+  border-top: 1px solid var(--color-border-auto);
+  z-index: var(--zIndex-navbar);
+  align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 640px) {
+  .tabbar.enabled { display: flex; }
+  body.has-tabbar .content { padding-bottom: 76px; }
+}
+.tabbar-item { display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--color-text-secondary-auto); font-size: 10px; min-width: var(--size-touch-target); }
+.tabbar-item.active { color: var(--color-accent-auto); }
+
+/* ---------- Prototype-only chrome (menu launcher, not part of the product) ---------- */
+.proto-fab {
+  position: fixed; bottom: var(--spacing-6); left: var(--spacing-6);
+  z-index: var(--zIndex-toast);
+  background: var(--color-brand-dark); color: #fff;
+  border: none; border-radius: var(--borderRadius-full);
+  padding: var(--spacing-3) var(--spacing-5);
+  font-size: var(--typography-size-sm); font-weight: var(--typography-weight-medium);
+  box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; gap: var(--spacing-2);
+}
+.proto-meta { display: flex; align-items: center; gap: var(--spacing-3); margin-bottom: var(--spacing-6); }
+
+/* ---------- Dark mode ----------
+   Everything flips automatically: components read the --color-*-auto
+   and --color-accent-auto aliases, which are redefined once above
+   under body.dark and cascade to every descendant (including inline
+   styles injected by JS in pages.js). No per-component overrides
+   needed here anymore. */

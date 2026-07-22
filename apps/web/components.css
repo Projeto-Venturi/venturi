@@ -1,0 +1,249 @@
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  height: var(--size-touch-target);
+  padding: 0 var(--spacing-5);
+  border-radius: var(--borderRadius-md);
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-base);
+  border: 1px solid transparent;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--color-semantic-interactive-primary);
+  color: var(--color-semantic-text-on-brand);
+}
+.btn-primary:hover { background: var(--color-semantic-interactive-primary-hover); }
+.btn-primary:active { background: var(--color-semantic-interactive-primary-active); }
+.btn-primary:hover { box-shadow: var(--shadow-brand); }
+
+.btn-secondary {
+  background: var(--color-semantic-interactive-secondary);
+  color: var(--color-accent-auto);
+  border-color: var(--color-accent-auto);
+}
+.btn-secondary:hover { background: var(--color-bg-secondary-auto); }
+
+.btn-accent {
+  background: var(--color-semantic-interactive-accent);
+  color: var(--color-brand-cherry-deep);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary-auto);
+}
+.btn-ghost:hover { background: var(--color-bg-secondary-auto); }
+
+.btn-sm { height: 32px; padding: 0 var(--spacing-3); font-size: var(--typography-size-sm); }
+.btn-block { width: 100%; }
+.btn-icon { width: var(--size-touch-target); height: var(--size-touch-target); padding: 0; border-radius: var(--borderRadius-full); }
+
+/* Inputs — .field is applied to a <label> wrapping both the caption and the
+   control, so every input has a real programmatic label (screen readers +
+   "click the text to focus the field") without needing generated id/for pairs. */
+.field { display: flex; flex-direction: column; gap: var(--spacing-2); margin-bottom: var(--spacing-4); cursor: default; }
+.field-label {
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-sm);
+  letter-spacing: var(--typography-letterSpacing-wide);
+  color: var(--color-text-secondary-auto);
+  text-transform: uppercase;
+}
+.input, textarea.input, select.input {
+  height: var(--size-touch-target);
+  padding: 0 var(--spacing-4);
+  border-radius: var(--borderRadius-md);
+  border: 1px solid var(--color-border-auto);
+  background: var(--color-bg-primary-auto);
+  font-size: var(--typography-size-md);
+  color: var(--color-text-primary-auto);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+textarea.input { height: auto; padding: var(--spacing-4); resize: vertical; }
+.input:focus { border-color: var(--color-semantic-border-focus); box-shadow: 0 0 0 3px rgba(103, 6, 38, 0.18); }
+body.dark .input:focus { box-shadow: 0 0 0 3px rgba(186, 215, 151, 0.25); }
+.input::placeholder { color: var(--color-text-secondary-auto); }
+.checkbox-row { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--typography-size-sm); color: var(--color-text-secondary-auto); }
+
+/* Visible keyboard-focus ring for anything interactive (mouse clicks don't
+   trigger :focus-visible, so this only shows up for keyboard/AT users). */
+a:focus-visible, button:focus-visible, .tab:focus-visible, .chip:focus-visible,
+.sidebar-item:focus-visible, .local-nav-item:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent-auto);
+  outline-offset: 2px;
+  border-radius: var(--borderRadius-sm);
+}
+
+/* Card */
+.card {
+  background: var(--color-bg-primary-auto);
+  border: 1px solid var(--color-border-auto);
+  border-radius: var(--borderRadius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-4);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card-title { font-family: var(--typography-family-interface); font-weight: var(--typography-weight-semibold); font-size: var(--typography-size-lg); margin-bottom: var(--spacing-2); }
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px var(--spacing-2);
+  border-radius: var(--borderRadius-sm);
+  font-family: var(--typography-family-interface);
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-xs);
+  letter-spacing: var(--typography-letterSpacing-wider);
+  text-transform: uppercase;
+}
+.badge-success { color: var(--color-semantic-status-success); background: var(--color-semantic-status-success-bg); }
+.badge-warning { color: var(--color-semantic-status-warning); background: var(--color-semantic-status-warning-bg); }
+.badge-error { color: var(--color-semantic-status-error); background: var(--color-semantic-status-error-bg); }
+.badge-info { color: var(--color-semantic-status-info); background: var(--color-semantic-status-info-bg); }
+.badge-neutral { color: var(--color-text-secondary-auto); background: var(--color-bg-secondary-auto); }
+
+/* Chips are <span> when used as read-only tags (e.g. cost categories) and
+   real <button>s when used as filters, so they're keyboard-operable. Only
+   the button variant gets a pointer cursor — a read-only tag shouldn't look
+   clickable. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--borderRadius-full);
+  border: 1px solid var(--color-border-auto);
+  font-size: var(--typography-size-sm);
+  font-family: inherit;
+  color: var(--color-text-secondary-auto);
+  background: var(--color-bg-primary-auto);
+  margin: 0;
+}
+button.chip { cursor: pointer; }
+.chip.active { border-color: var(--color-accent-auto); color: var(--color-accent-auto); background: var(--color-bg-secondary-auto); }
+
+/* Avatar — sometimes a real <button> (e.g. the account-menu trigger) so it's
+   keyboard-focusable; reset the default button chrome in that case. */
+.avatar { border-radius: var(--borderRadius-full); background: var(--color-brand-matcha); color: var(--color-brand-cherry-deep); display: flex; align-items: center; justify-content: center; font-weight: var(--typography-weight-semibold); flex-shrink: 0; border: none; padding: 0; font-family: inherit; cursor: default; }
+button.avatar { cursor: pointer; }
+.avatar-sm { width: var(--size-avatar-sm); height: var(--size-avatar-sm); font-size: 11px; }
+.avatar-md { width: var(--size-avatar-md); height: var(--size-avatar-md); font-size: 14px; }
+.avatar-lg { width: var(--size-avatar-lg); height: var(--size-avatar-lg); font-size: 22px; }
+
+/* Progress bar */
+.progress { height: 8px; border-radius: var(--borderRadius-full); background: var(--color-border-auto); overflow: hidden; }
+.progress > span { display: block; height: 100%; background: var(--color-semantic-interactive-primary); border-radius: var(--borderRadius-full); }
+
+/* Local in-page section list (e.g. Configurações) — intentionally NOT styled
+   like .sidebar-item, so it doesn't look like real cross-page navigation. */
+.local-nav {
+  border-left: 2px solid var(--color-border-auto);
+  display: flex; flex-direction: column;
+}
+.local-nav-item {
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--typography-size-sm);
+  color: var(--color-text-secondary-auto);
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+.local-nav-item.active { color: var(--color-text-primary-auto); font-weight: var(--typography-weight-medium); border-left-color: var(--color-accent-auto); }
+
+/* Tabs — most .tab elements are real <button>s (JS-toggled content); a few
+   are <a> (Fórum categories, which actually navigate). Reset button-only
+   chrome so both look identical. */
+.tabs { display: flex; gap: var(--spacing-2); border-bottom: 1px solid var(--color-border-auto); margin-bottom: var(--spacing-4); overflow-x: auto; }
+.tab {
+  background: none; border: none; border-bottom: 2px solid transparent; margin: 0;
+  font-family: inherit; cursor: pointer;
+  padding: var(--spacing-3) var(--spacing-4); font-size: var(--typography-size-base); font-weight: var(--typography-weight-medium);
+  color: var(--color-text-secondary-auto); white-space: nowrap; text-decoration: none;
+}
+.tab.active { color: var(--color-accent-auto); border-bottom-color: var(--color-accent-auto); }
+
+/* Spreadsheet-style formula bar, placed directly above the table it explains */
+.formula-bar {
+  display: flex; align-items: center; gap: var(--spacing-3);
+  background: var(--color-bg-secondary-auto);
+  border: 1px solid var(--color-border-auto);
+  border-bottom: none;
+  border-radius: var(--borderRadius-md) var(--borderRadius-md) 0 0;
+  padding: var(--spacing-2) var(--spacing-4);
+}
+.formula-bar .formula-fx { font-family: var(--typography-family-mono); font-weight: var(--typography-weight-semibold); color: var(--color-accent-auto); font-size: var(--typography-size-sm); }
+.formula-bar .formula-cell { font-family: var(--typography-family-mono); font-size: var(--typography-size-xs); color: var(--color-text-secondary-auto); background: var(--color-bg-primary-auto); border: 1px solid var(--color-border-auto); border-radius: var(--borderRadius-sm); padding: 1px 6px; }
+.formula-bar + .table-wrap { border-radius: 0 0 var(--borderRadius-lg) var(--borderRadius-lg); }
+.calc-hint { display: flex; align-items: flex-start; gap: var(--spacing-2); font-size: var(--typography-size-sm); color: var(--color-text-secondary-auto); margin-top: var(--spacing-2); }
+
+/* Table */
+.table-wrap { overflow-x: auto; border-radius: var(--borderRadius-lg); border: 1px solid var(--color-border-auto); }
+table.grid { width: 100%; border-collapse: collapse; background: var(--color-bg-primary-auto); }
+table.grid tr.computed td { font-weight: var(--typography-weight-semibold); border-top: 2px solid var(--color-border-auto); background: var(--color-bg-secondary-auto); }
+table.grid th {
+  text-align: left; padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-bg-secondary-auto);
+  font-size: var(--typography-size-xs); text-transform: uppercase; letter-spacing: var(--typography-letterSpacing-wide);
+  color: var(--color-text-secondary-auto); font-weight: var(--typography-weight-medium);
+  border-bottom: 1px solid var(--color-border-auto);
+}
+table.grid td { padding: var(--spacing-3) var(--spacing-4); border-bottom: 1px solid var(--color-border-auto); font-size: var(--typography-size-base); }
+table.grid tr:last-child td { border-bottom: none; }
+table.grid td.mono { font-family: var(--typography-family-mono); font-size: var(--typography-size-sm); }
+
+/* Kanban */
+.kanban { display: flex; gap: var(--spacing-4); overflow-x: auto; padding-bottom: var(--spacing-2); align-items: flex-start; }
+.kanban-col { flex: 0 0 var(--size-kanban-column-width); display: flex; flex-direction: column; gap: var(--spacing-3); }
+.kanban-col-head { display: flex; align-items: center; gap: var(--spacing-2); padding: 0 var(--spacing-1); }
+.kanban-dot { width: 8px; height: 8px; border-radius: var(--borderRadius-full); }
+.kanban-card {
+  background: var(--color-bg-primary-auto);
+  border: 1px solid var(--color-border-auto);
+  border-radius: var(--borderRadius-md);
+  padding: var(--spacing-3);
+  min-height: var(--size-card-min-height);
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; gap: var(--spacing-2);
+  cursor: grab;
+}
+.kanban-card:hover { box-shadow: var(--shadow-md); }
+a.kanban-card { text-decoration: none; color: inherit; }
+a.card { text-decoration: none; color: inherit; display: block; }
+.kanban-add { border: 1px dashed var(--color-border-auto); border-radius: var(--borderRadius-md); padding: var(--spacing-3); font-size: var(--typography-size-sm); color: var(--color-text-secondary-auto); text-align: center; }
+
+/* Chapeu tags */
+.hat-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--typography-size-xs); font-weight: var(--typography-weight-medium);
+  color: var(--color-text-secondary-auto);
+  background: var(--color-bg-secondary-auto);
+  border-radius: var(--borderRadius-full);
+  padding: 4px var(--spacing-3);
+  white-space: nowrap;
+}
+.hat-dot { width: 8px; height: 8px; border-radius: var(--borderRadius-full); display: inline-block; flex-shrink: 0; }
+
+/* Chat / messages */
+.chat-bubble { max-width: 78%; padding: var(--spacing-3) var(--spacing-4); border-radius: var(--borderRadius-lg); font-size: var(--typography-size-base); }
+.chat-bubble.me { align-self: flex-end; background: var(--color-semantic-interactive-primary); color: var(--color-semantic-text-on-brand); border-bottom-right-radius: var(--borderRadius-sm); }
+.chat-bubble.them { align-self: flex-start; background: var(--color-bg-secondary-auto); color: var(--color-text-primary-auto); border-bottom-left-radius: var(--borderRadius-sm); }
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(26,16,20,0.5); display: flex; align-items: center; justify-content: center; z-index: var(--zIndex-modal); }
+.modal { background: var(--color-bg-primary-auto); border-radius: var(--borderRadius-xl); box-shadow: var(--shadow-xl); padding: var(--spacing-6); max-width: 480px; width: 90%; }
+
+/* Empty helpers */
+.hr { height: 1px; background: var(--color-border-auto); border: none; margin: var(--spacing-4) 0; }
+.stack { display: flex; flex-direction: column; }
+.row { display: flex; align-items: center; }
+.grid-auto { display: grid; gap: var(--spacing-4); }
